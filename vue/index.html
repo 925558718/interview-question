@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Dep.js"></script>
+    <script src="observer.js"></script>
+    <script src="watcher.js"></script>
+    <script src="index.js"></script>
+
+</head>
+<body>
+    <h1 id="name">{{name}}</h1>
+
+    <script type="text/javascript">
+        let ele=document.querySelector('#name');
+        let self=new SelfVue({
+            name:'gaga'
+        },ele,'name')
+        window.setTimeout(function () {
+            console.log(self)
+            self.name='canfoo'
+        },2000)
+
+    </script>
+</body>
+</html>
