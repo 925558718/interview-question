@@ -1,3 +1,4 @@
+/*
 function Promise(executor) {
     var _this=this;
     _this.status='pending';
@@ -94,4 +95,90 @@ Promise.prototype.then=function (onResolve,onReject) {
     }
 }
 
+*/
 
+function f(exe) {
+    let _this=this;
+    _this.data=''
+    _this.status='pending';
+    _this.resolveCallback=[];
+    _this.rejectCallback=[];
+    function resolve(value) {
+        setTimeout(function () {
+            if (_this.status='pending'){
+                _this.status='resolved'
+                _this.data=value;
+                _this.resolveCallback.forEach(item=>{
+                    item(value)
+                })
+            }
+        })
+    }
+    function reject(reason) {
+        setTimeout(function () {
+            if (_this.status='pending'){
+                _this.status='rejected'
+                _this.data=reason;
+                _this.rejectCallback.forEach(item=>{
+                    item(reason)
+                })
+            }
+        })
+    }
+    exe(resolve)
+}
+f.prototype.then=function (OnResolve,OnReject) {
+    self=this;
+    var AntherPromise;
+    self.resolveCallback.push(OnResolve)
+    self.rejectCallback.push(OnReject);
+    OnResolve=typeof OnResolve==='function'?OnResolve:function (value) {
+        return value
+    }
+    OnReject=typeof OnReject==="function"?OnReject:function (reason) {
+        return reason
+    }
+
+    if (self.status==='resolved'){
+        return AntherPromise=new f((resolve,reject)=>{
+            var x=OnResolve(this.data)
+            if (x instanceof f) {
+                x.then(resolve,reject)
+            }else{
+                resolve(x)
+            }
+        })
+    }
+    if (this.status==='rejected'){
+        return AntherPromise=new f((resolve,reject)=>{
+
+        })
+    }
+    if (this.status==='pending'){
+        return AntherPromise=new f((resolve,reject)=>{
+            self.resolveCallback.push(function (value) {
+                var x=OnResolve(self.data)
+                if (x instanceof f){
+                    x.then(resolve,reject);
+                } else{
+                    resolve(x);
+                }
+            })
+            self.rejectCallback.push(function (reson) {
+                var x=OnResolve(self.data)
+                if (x instanceof f){
+                    x.then(resolve,reject);
+                } else{
+                    resolve(x);
+                }
+            })
+        })
+    }
+}
+var p=new f((resolve,reject)=>{
+    resolve(1)
+}).then(res=>{
+    console.log(res)
+}).then(res=>{
+    console.log(res)
+})

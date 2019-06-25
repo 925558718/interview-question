@@ -12,7 +12,6 @@ function SelfVue(data,el,exp) {
 function SelfVue(data,el,exp) {
     var self=this;
     this.data=data;
-
     Object.keys(data).forEach(function (key) {
         self.proxyKeys(key)
     })
