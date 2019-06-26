@@ -175,6 +175,28 @@ f.prototype.then=function (OnResolve,OnReject) {
         })
     }
 }
+f.all=function (promises) {
+    return new f((resolve,reject)=>{
+        promises=Array.from(promises)
+        if (promises.length==0){
+            resolve([])
+        } else{
+            let res=[];
+            let index=0;
+
+        for (let i=0;i<promises.length;i++){
+            Promise.resolve(promises[i]).then(data=>{
+                res[i]=data;
+                if (++index===promises.length){
+                    resolve(res);
+                }
+            },err=>{
+                reject(err);
+                return ;
+            })
+        } }
+    })
+}
 var p=new f((resolve,reject)=>{
     resolve(1)
 }).then(res=>{
