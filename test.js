@@ -247,3 +247,28 @@ let a={
 }
 console.log( a == 1 && a == 2 && a == 3 )
 */
+
+/*
+
+Object.cre=function (obj,properties) {
+    function F(){}
+    F.prototype=obj
+    let o=new F()
+    if (typeof properties ==='object'){
+        Object.defineProperties(o,properties);
+    }
+    return o
+}
+
+const person = {
+    isHuman: false,
+    printIntroduction: function () {
+        console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+    }
+};
+console.log(person._proto_)
+var test=Object.cre(person)
+console.log(test)
+*/
+ar=[]
+console.log(typeof ar)
