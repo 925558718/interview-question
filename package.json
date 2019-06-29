@@ -1,0 +1,24 @@
+{
+  "name": "interview-question",
+  "version": "1.0.0",
+  "description": "这个仓库是我从各个论坛搜集的面试题答案，为了防止被删除建的",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/925558718/interview-question.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/925558718/interview-question/issues"
+  },
+  "homepage": "https://github.com/925558718/interview-question#readme",
+  "dependencies": {
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.4"
+  }
+}
