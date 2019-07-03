@@ -1,0 +1,96 @@
+//快排 及三种优化
+
+int selectRivotRandom(vector<int>& arr, int l, int r) {
+	srand((unsigned)time(NULL));
+	int pivotPos = rand() % (r - l) + l;
+	swap(arr[pivotPos], arr[l]);
+	return arr[l];
+}
+int partion(vector<int> &arr, int l, int r) {
+	/*int temp = arr[l];
+	while (l<r)
+	{
+		while (l < r && arr[r] >= temp) r--;
+		if (l>=r)
+		{
+			break;
+		}
+		else {
+			arr[l] = arr[r];
+		}
+		while (l < r && arr[l] <= temp) l++;
+		if (l>=r)
+		{
+			break;
+		}
+		else {
+			arr[r] = arr[l];
+		}
+	}
+	arr[l] = temp;
+	return l;*/
+	//三数取中
+	int m = l + (r - l) / 2;
+	if (arr[l]>arr[r])
+	{
+		swap(arr[l], arr[r]);
+	}
+	if (arr[m]>arr[r])
+	{
+		swap(arr[m],arr[r]);
+	}
+	if (arr[m]>arr[l])
+	{
+		swap(arr[m], arr[l]);
+	}
+	int temp = arr[l];
+	while (l < r)
+	{
+		while (l < r && arr[r] >= temp) r--;
+		if (l >= r)
+		{
+			break;
+		}
+		else {
+			arr[l] = arr[r];
+		}
+		while (l < r && arr[l] <= temp) l++;
+		if (l >= r)
+		{
+			break;
+		}
+		else {
+			arr[r] = arr[l];
+		}
+	}
+	arr[l] = temp;
+	return l;
+}
+void quick(vector<int>& arr, int l, int r) {
+	if ((r-l)>10)
+	{
+		int par = partion(arr, l, r);
+		if (par > l + 1)
+		{
+			quick(arr, l, par - 1);
+		}
+		if (par < r - 1)
+		{
+			quick(arr, par + 1, r);
+		}
+	}
+	else {
+		//插入排序
+	}
+
+}
+
+int main()
+{
+	vector<int> arr = { 5,3,5,7,2,4 };
+	quick(arr, 0, arr.size() - 1);
+	for (auto i : arr) {
+		cout << i;
+	}
+	cout << endl;
+}

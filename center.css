@@ -1,7 +1,25 @@
 #hello{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.5s;
+    left: 50%;
+    transform: translate(-50%);
+    height: 200px;
+    width: 200px;
+    background: red;
+    position: absolute;
+    animation: anim 1s ease-in forwards;
+}
+
+#back{
+    height: 100vh;
+    width: 100%;
+    background: black;
+    opacity: 0.5;
+}
+
+@keyframes anim {
+    from {
+        bottom: 0;
+    }
+    to{
+        bottom: 50%;
+    }
 }

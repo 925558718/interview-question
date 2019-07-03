@@ -354,6 +354,112 @@ a();
 
 console.log(this)
 */
-typeof function () {
-    
+
+/*
+const arr=[2,3,4];
+let a=arr.reduce((list,num)=>{
+    num=num*2;
+    list.push(num);
+    return list;
+},[])
+console.log(a)
+*/
+/*function myp(executor) {
+    let self=this;
+    this.status='pending';
+    this.data='';
+    this.arrResolve=[];
+    this.arrReject=[];
+    function resolve(value) {
+
+            self.status='resolve';
+            self.data=value;
+            self.arrResolve.forEach(i=>{
+                i(value);
+            })
+
+    }
+    function reject(err) {
+
+            self.status='reject';
+            self.data=err;
+            self.arrResolve.forEach(i=>{
+                i(err);
+            })
+
+    }
+    try{
+        executor(resolve,reject)
+    }catch (e) {
+        reject(e)
+    }
 }
+myp.prototype.then=function (resolve,reject) {
+    resolve=typeof resolve=='function'?resolve:value=>value
+    reject=typeof reject=='function'?reject:err=>err
+    let self=this;
+    var p=new myp((res,rej)=>{
+
+        if (self.status='resolve'){
+            this.arrResolve.push(resolve);
+            try{
+                var x=resolve(self.data)
+                res(x);
+            }catch (e) {
+                reject(e)
+            }
+        }
+        else if (self.status='reject'){
+            this.arrReject.push(reject)
+            try{
+                var x=reject(self.data)
+                rej(x);
+            }catch (e) {
+                reject(e)
+            }
+        }else if(self.status='pending'){
+            this.arrResolve.push(resolve)
+            this.arrResolve.push(reject)
+        }
+    })
+
+    return p;
+
+}
+var p=new myp((resolve,reject)=>{
+    resolve(1)
+}).then(res=>{
+    console.log(res)
+    return res;
+}).then(res=>{
+    console.log(res)
+    return res;
+    }
+)*/
+//call
+/*
+Function.prototype.call=function (context) {
+    if (!context){
+        context=typeof window ==='undefined'?global:window;
+    }
+    context.fn=this;
+    let arg=[...arguments].slice(1);
+    let res=context.fn(...arg);
+    delete context.fn;
+    return res;
+}
+
+//apply
+Function.prototype.apply=function (context,rest) {
+    if (!context){
+        context=typeof window ==='undefined'?global:window;
+    }
+    context.fn=this;
+    let res=context.fn(...rest);
+    return res;
+}
+//bind
+
+Function.prototype.bind=function (context) {
+
+}*/

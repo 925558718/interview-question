@@ -1,0 +1,40 @@
+//前序遍历 迭代版
+vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        stack<TreeNode *> s;
+        TreeNode *p=root;
+        while(p||!s.empty()){
+            if(p){
+                s.push(p);
+                res.push_back(p->val);
+                p=p->left;
+            }else{
+                TreeNode *t=s.top();s.pop();
+                p=t->right;
+            }
+        }
+        return res;
+    }
+
+//逆转链表
+ListNode* reverseList(ListNode* head) {
+        递归版
+        //if(!head||!head->next) return head;
+        //ListNode *newHead=reverseList(head->next);
+        //head->next->next=head;
+        //head->next=NULL;
+        //return newHead;
+        迭代班
+        ListNode *newHead=NULL;
+        while(head){
+            ListNode *t=head->next;
+            head->next=newHead;
+            newHead=head;
+            head=t;
+        }
+        return newHead;
+
+    }
+
+
+
