@@ -270,5 +270,90 @@ console.log(person._proto_)
 var test=Object.cre(person)
 console.log(test)
 */
-ar=[]
-console.log(typeof ar)
+/*window.onscroll=function () {
+    var imgaes=document.images;
+    imgaes.forEach(i=>{
+        if (i.getBoundingClientRect().top<window.clientHeight){
+            i.src='https://sedasdsa'
+        }
+    })
+}*/
+
+/*
+function liu(func,wait) {
+    let timeout;
+    return function () {
+        if (!timeout){
+            timeout=setTimeout(()=>{
+                timeout=null;
+                func();
+            },wait)
+        }
+    }
+}
+
+function dou(func,wait) {
+    let timeout;
+    return function () {
+        if (timeout){
+           clearTimeout(timeout);
+        }
+        timeout=setTimeout(function () {
+            func();
+        },wait)
+    }
+}
+
+function double(func,wait) {
+    let timeout;
+    return function () {
+        if (timeout) clearTimeout(timeout)
+        else{
+            timeout=setTimeout(()=>{
+                func()
+            },wait)
+        }
+    }
+}
+*/
+/*function curry(fn,...arg) {
+    return fn.length>arg.length?(...arguments)=>curry(fn,...arg,...arguments):fn(...arg)
+}*/
+/*class EventEmitter{
+    constructor(){
+        this.eventpool={};
+    }
+    on(event,callback){
+        this.eventpool[event]?this.eventpool[event].push(callback):this.eventpool[event]=[callback];
+    }
+    emit(event,...arg){
+        this.eventpool[event]&&this.eventpool[event].forEach(i=>{
+            i(...arg)
+        })
+    }
+    off(event){
+        this.eventpool[event]&&delete this.eventpool[event]
+    }
+    once(event,callback){
+        this.on(event,(...args)=>{
+            callback(...args);
+            this.off(event);
+        })
+    }
+}*/
+
+/*
+function a() {
+    this.b = 3
+    console.log(this)
+}
+a.prototype.b = 7;
+var t = new a();
+var b = 2;
+a();
+
+console.log(this)
+*/
+typeof function () {
+    
+}

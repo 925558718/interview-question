@@ -1,3 +1,5 @@
-const sum =require('lib.js')
-console.log(sum(1,2));
+
+function component() {
+}
+document.body.appendChild(component())
 

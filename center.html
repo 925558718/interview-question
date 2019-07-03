@@ -6,9 +6,20 @@
     <link rel="stylesheet" href="center.css">
 </head>
 <body>
-    <div class="con">
-        <div class="gaga"></div>
-        <div class="gaga2"></div>
-    </div>
+<a href="https://www.baidu.com" id="a">点我</a>
+<div id="hello">hello</div>
 </body>
+<script type="text/javascript">
+    let a=document.getElementById('a');
+    function click(e) {
+            e.preventDefault()
+            console.log(1)
+            let hello=document.getElementById('hello');
+            hello.style.opacity='0.5';
+    }
+    a.onclick=function (e) {
+        click(e)
+    }
+
+</script>
 </html>

@@ -1,12 +1,7 @@
-.gaga{
-    float: left;
-    width: 100%;
-}
-
-.con{
-    height: 100%;
-    width: 100%;
-}
-.gaga2{
-    float: right;
+#hello{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
 }

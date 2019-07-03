@@ -38,12 +38,7 @@ function throttle3(func,wait,options){
     var timeout,context,args,result;
     var previous=0;
     if(!options) options={};
-    var later=function () {
-        previous=options.leading===false?0:Date.now()||new Date().getTime();
-        timeout=null;
-        result=func.apply(context,args);
-        if(!timeout) context=args=null;
-    }
+
     var throttled=function(){
         var now=Date.now()||new Date().getTime();
         if (!previous&&options.leading===false) previous=now;
