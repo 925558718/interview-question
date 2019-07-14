@@ -488,3 +488,45 @@ console.log=(function (log) {
 })(console.log)
 console.log("haha")
 */
+//判断对象是否为空
+
+/*a={}
+console.log(JSON.stringify(a)=='{}')
+
+for (let i in a){
+    console.log(i)
+}
+
+console.log(Reflect.getPrototypeOf(a))
+
+console.log(Reflect.ownKeys(a))*/
+
+
+//递归遍历数组
+/*var arr=[1,2,3]
+function a(arr,index) {
+    if (index==arr.length) return;
+    console.log(arr[index])
+    a(arr,index+1)
+}
+a(arr,0)*/
+
+/*
+function f(url,param,callback) {
+    return new Promise((resolve,reject)=>{
+        let script=document.createElement("script")
+        window[callback]=function (data) {
+            resolve(data);
+            document.body.removeChild(script);
+        }
+        param={...param,callback};
+        let arr=[];
+        for (let key in param){
+            arr.push(`${key}=${param[key]}`);
+        }
+        script.src=`${url}?${arr.join('&')}`
+        document.body.appendChild(script)
+    })
+
+}
+*/
