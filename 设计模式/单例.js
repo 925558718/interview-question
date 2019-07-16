@@ -1,6 +1,5 @@
 class Singletonj{
     constructor(){}
-
 }
 Singletonj.singleInstance=(function () {
     let instance;

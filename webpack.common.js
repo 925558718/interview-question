@@ -15,23 +15,14 @@ module.exports={
     },
     resolveLoader: {
       modules:[
-          path.resolve(__dirname,'./webpack/src'),
+          path.resolve(__dirname,'./webpack/loader'),
       ]
     },
     plugins: [
         new CleanWebpackPlugin()
     ],
     module: {
-        rules: [
-            {
-                test:/\.html$/,
-                use:
-                    {
-                        loader: path.resolve(__dirname,'./webpack/src/loader.js')
-                    }
 
-            }
-        ]
     }
 
 }

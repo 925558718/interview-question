@@ -530,3 +530,18 @@ function f(url,param,callback) {
 
 }
 */
+//反转字符串
+/*
+
+let str="abc";
+let s=''
+for (let i=str.length-1;i>=0;i--){
+    s+=str[i]
+}
+console.log(Array.from(str).reverse().join(""))
+
+*/
+
+function t() {
+
+}
