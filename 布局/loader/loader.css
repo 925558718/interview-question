@@ -1,0 +1,28 @@
+#out{
+    height: 300px;
+    width: 300px;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(deepskyblue,red);
+    position: relative;
+    animation: rotate 2s infinite alternate;
+}
+
+#in{
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background: white;
+
+}
+
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

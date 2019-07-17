@@ -24,18 +24,6 @@ gaga.call1(obj)*/
 
 
 
-/!*function f(arr) {
-    let res=[];
-    arr.forEach(item=>{
-        if (Array.isArray(item)){
-            res.push(...f(item))
-        }else{
-            res.push(item)
-        }
-    })
-    return res;
-}*!/
-/!*console.log(f([1,2,['3',[4]],5,]))*!/
 
 //数组方法
 
@@ -335,7 +323,7 @@ function double(func,wait) {
         this.eventpool[event]&&delete this.eventpool[event]
     }
     once(event,callback){
-        this.on(event,(...args)=>{
+        this.on(e5vent,(...args)=>{
             callback(...args);
             this.off(event);
         })
@@ -542,6 +530,46 @@ console.log(Array.from(str).reverse().join(""))
 
 */
 
-function t() {
 
+/*
+var res=[]
+function f(arr,res) {
+
+    arr.forEach(item=>{
+        if (Array.isArray(item)){
+            f(item,res)
+        }else{
+            res.push(item)
+        }
+    })
 }
+
+f([2,3,4,[5,66,[7,8]]],res)
+console.log(res)
+
+console.log([2,3,4,[5,66,[7,8]]].flat(3))
+
+*/
+/*
+function flatten(arr) {
+    var res=[];
+    arr.forEach(item=>{
+        if (Array.isArray(item)){
+            res=res.concat(flatten(item))
+        } else{
+            res.push(item)
+        }
+    })
+    return res;
+}
+
+*/
+/*
+function flatten(arr) {
+    return arr.reduce((pre,item)=>{
+        return pre.concat(Array.isArray(item)?flatten(item):item)
+    },[])
+}
+console.log(flatten([2,3,4,[5,66,[7,8]]]))
+*/
+
