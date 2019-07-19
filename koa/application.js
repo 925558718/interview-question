@@ -7,6 +7,7 @@ module.exports=class Application extends Emitter{
         super();
         this.middleware=[];
         this.context = Object.create(context);
+
     }
 
     listen(...arg){
@@ -19,7 +20,9 @@ module.exports=class Application extends Emitter{
         const fn=compose(this.middleware);
         const handleRequest=(req,res)=>{
             const ctx=this.createContext(req,res)
+            return fn(ctx).then(handleResponse).catch(error)
         }
+        return handleRequest()
     }
     createContext(req,res){
         const ctx=Object.create(this.context)
@@ -29,10 +32,5 @@ module.exports=class Application extends Emitter{
         this.push(fn)
         return this;
     }
-    handleRequest(ctx,fnMiddleware){
-        const res=ctx.a;
-        res.statusCode=404;
-        const onerror=err=>console.log("error")
-        return fnMiddleware(ctx).then()
-    }
+
 }

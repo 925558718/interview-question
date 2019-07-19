@@ -35,10 +35,7 @@ ListNode* reverseList(ListNode* head) {
         return newHead;
 
     }
-
-
 反转二叉树
-
 //if(!root) return NULL ;
         //TreeNode *temp=root->left;
         //root->left=invertTree(root->right);
