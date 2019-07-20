@@ -502,7 +502,7 @@ function a(arr,index) {
 a(arr,0)*/
 
 /*
-function f(url,param,callback) {
+function jsonp(url,param,callback) {
     return new Promise((resolve,reject)=>{
         let script=document.createElement("script")
         window[callback]=function (data) {
@@ -574,4 +574,28 @@ function flatten(arr) {
 }
 console.log(flatten([2,3,4,[5,66,[7,8]]]))
 */
+//判断一个对象是否为数组
+/*let a=[1]
+console.log(Array.prototype.isPrototypeOf(a))
+console.log(Array.isArray(a))
+console.log(a instanceof Array)
+console.log(Object.prototype.toString.call(a))*/
+//reduce 实现
+/*
+Array.prototype.reduce1=function (handler,init) {
+    let initArr=this;
+    let arr=initArr.concat();
+    if(init) arr.unshift(init);
+    let index,value;
+    while(arr.length>1){
+        index=initArr.length-arr.length+1;
+        value=handler(arr[0],arr[1],index,initArr);
+        arr.splice(0,2,value);
+    }
+    return value;
+}
 
+console.log([1,2,3,4].reduce1((sum,item)=>{
+    return sum+item
+},0))
+*/

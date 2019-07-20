@@ -403,3 +403,233 @@ TreeNode* KthNode(TreeNode* pRoot, int k)
             }
             return res;
          }
+26.请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+vector<vector<int> > Print(TreeNode* pRoot) {
+        if(!pRoot) return {};
+        stack<TreeNode*> s1{{pRoot}};
+        stack<TreeNode*> s2;
+        vector<int> out;
+        vector<vector<int>> res;
+        while(!s1.empty()||!s2.empty()){
+            while(!s1.empty()){
+                TreeNode *t=s1.top();
+                s1.pop();
+                out.push_back(t->val);
+                if(t->left) s2.push(t->left);
+                if(t->right) s2.push(t->right);
+            }
+            if(!out.empty()) res.push_back(out);
+            out.clear();
+            while(!s2.empty()){
+                TreeNode *t=s2.top();
+                s2.pop();
+                out.push_back(t->val);
+                if(t->right) s1.push(t->right);
+                if(t->left) s1.push(t->left);
+            }
+            if(!out.empty()) res.push_back(out);
+            out.clear();
+        }
+        return res;
+    }
+27.在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
+ListNode* deleteDuplication(ListNode* p)
+    {
+           ListNode *head=new ListNode(-1);
+            head->next=p;
+           ListNode *cur=p;
+           ListNode *last=p->next;
+           while(last){
+               if(last->next&&last->val==last->next->val){
+                   while(last->next&& last->val == last->next->val){
+                       last=last->next;
+                   }
+                   cur->next=last->next;
+                   last=last->next;
+               }else{
+                   cur=cur->next;
+                   last=last->next;
+               }
+           }
+            return head->next;
+    }
+28.快速排序
+int p(vector<int>& arr, int l, int r) {
+	int left = l, right = r;
+	int temp = arr[l];
+	while (l < r) {
+		while (l < r && arr[r] >= temp) {
+			r--;
+		}
+
+		while (l < r && arr[l] <= temp) {
+			l++;
+		}
+		if (l < r) swap(arr[l], arr[r]);
+	}
+	arr[left] = arr[l];
+	arr[l] = temp;
+	return l;
+}
+void quick(vector<int>& arr, int l, int r) {
+	int position = p(arr, l, r);
+	if (position > l + 1) {
+		quick(arr, l, position - 1);
+	}
+	if (position < r - 1) {
+		quick(arr, position + 1, r);
+	}
+}
+最优log n 最差n^2
+29.冒泡排序
+void bubble(vector<int>& arr) {
+	for (int i = 0; i < arr.size(); i++) {
+		for (int j = 0; j <arr.size()-i-1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				swap(arr[j], arr[j + 1]);
+			}
+		}
+	}
+}
+
+n^2
+30.插入排序
+void insert(vector<int>& arr) {
+	int k, j,i;
+	for (i = 1; i < arr.size(); i++) {
+		for (j = i - 1; j >= 0;j--) {
+			if (arr[i] > arr[j]) {
+				break;
+			}
+		}
+		int temp = arr[i];
+		for (k = i - 1; k > j; k--) {
+			arr[k + 1] = arr[k];
+		}
+		arr[k + 1] = temp;
+
+	}
+}
+
+n^2
+
+31.选择排序
+void select(vector<int>& arr) {
+	for (int i = 0; i < arr.size(); i++) {
+		int min = i;
+		for (int j = i+1; j < arr.size(); j++) {
+			if (arr[j] < arr[min]) {
+				min = j;
+			}
+		}
+		swap(arr[min], arr[i]);
+	}
+}
+
+32，堆排
+void adjustHeap(vector<int> &arr, int i,int l) {
+	int temp = arr[i];
+	for (int k = 2 * i + 1; k < l; k = 2 * k + 1) {
+		if (k + 1 < l && arr[k] < arr[k + 1]) k++;
+		if (arr[k] > temp) {
+			swap(arr[i], arr[k]);
+			i = k;
+		}
+		else {
+			break;
+		}
+	}
+}
+void dui(vector<int> &arr) {
+	for (int i = arr.size() / 2 - 1; i >= 0; i--) {
+		adjustHeap(arr, i, arr.size());
+	}
+	for (int j = arr.size()-1; j > 0; j--) {
+		swap(arr[0], arr[j]);
+		adjustHeap(arr, 0, j);
+	}
+}
+
+33.我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+int rectCover(int number) {
+        if(number==0) return 0;
+        if(number==1||number==2) return number;
+        return rectCover(number-1)+rectCover(number-2);
+    }
+34.输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。
+int  NumberOf1(int n) {
+         int count = 0;
+        while(n!= 0){
+            count++;
+            n = n & (n - 1);
+         }
+        return count;
+     }
+35.输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+void reOrderArray(vector<int> &array) {
+        for(int i = 0;i < array.size();i++){
+            for(int j = array.size()-1; j>i;j--){
+                if(array[j]%2==1&&array[j-1]%2==0)
+                    swap(array[j],array[j-1]);
+            }
+        }
+    }
+36.输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下4 X 4矩阵： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 则依次打印出数字1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10.
+  if(matrix.empty()||matrix[0].empty()) return {};
+        int m=matrix.size(),n=matrix[0].size();
+        vector<int> res;
+        int up=0,down=m-1,left=0,right=n-1;
+        while(true){
+            for(int i=left;i<=right;i++) res.push_back(matrix[up][i]);
+            if(++up>down) break;
+            for(int i=up;i<=down;i++) res.push_back(matrix[i][right]);
+            if(--right<left) break;
+            for(int i=right;i<=left;i--) res.push_back(matrix[down][i]);
+            if(++down<up) break;
+            for(int i=down;i<=up;i++) res.push_back(matrix[i][left]);
+            if(++left>right) break;
+        }
+        return res;
+    }
+37.输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
+bool VerifySquenceOfBST(vector<int> sequence) {
+        int size = sequence.size();
+        if(0==size)return false;
+
+        int i = 0;
+        while(--size)
+        {
+            while(sequence[i++]<sequence[size]);
+            while(sequence[i++]>sequence[size]);
+
+            if(i<size)return false;
+            i=0;
+        }
+        return true;
+    }
+38.输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
+    bool VerifySquenceOfBST(vector<int> sequence) {
+        int size=sequence.size();
+        if(size==0) return false;
+        return help(sequence,0,sequence.size()-1);
+    }
+    bool help(vector<int> s,int l,int r){
+        if(l==r) return true;
+        int mid=l;
+        while(s[mid++]<s[r]&&mid<r);
+        int tmp=mid;
+        while(s[tmp++]>s[r]&&tmp<r);
+        if(tmp<r) return false;
+        if(mid==l||mid==r){
+            return help(s,l,r-1);
+        }else{
+            return help(s,l,mid-1)&&help(s,mid,r-1);
+        }
+    }
+n^2
+不稳定
+选择
+希尔
+快排
+堆排
+
