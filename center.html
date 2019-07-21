@@ -6,26 +6,8 @@
     <link rel="stylesheet" href="center.css">
 </head>
 <body>
-<div class="box">
-    <div class="g"></div>
+<div class="loader">
+    <div class="content"></div>
 </div>
-
-<script type="text/javascript">
-    var box=document.getElementsByClassName('g')[0];
-    var duration=5000;
-    var x=990,y=100;
-    var x2=200,y2=200;
-    var time=duration/10;
-    var flag=0;
-    var speedx=(x2-x)/time;
-    var speedy=(y2-y)/time;
-    var timeout=setInterval(function () {
-        flag++;
-        if(time==flag) clearInterval(timeout)
-        box.style.left=(x+speedx*(flag))+'px';
-        box.style.top=(y+speedy*(flag))+'px';
-        console.log(1)
-    },10)
-</script>
 </body>
 </html>

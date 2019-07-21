@@ -1,16 +1,21 @@
-.g{
-    width: 100%;
-    padding: 25% 0;
-    background: dodgerblue;
-    position: absolute;
+.loader{
+    width: 200px;
+    height: 20px;
+    background: blue;
 }
-.box{
-    width: 100%;
-    height: 100%;
-    position: relative;
+
+.content{
+    height: 20px;
+    width: 0;
+    background: red;
+    animation: loading 5s forwards;
 }
-body{
-    height: 100vh;
-    width: 100px;
-    position: relative;
+
+@keyframes loading {
+    from{
+        width: 0;
+    }
+    to{
+        width: 200px;
+    }
 }
