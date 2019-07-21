@@ -26,3 +26,10 @@ module.exports={
     }
 
 }
+//webpack优化
+//splitchunk
+// dll
+//external
+//happypack
+//ugify
+//treeshaking

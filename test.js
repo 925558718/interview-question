@@ -599,3 +599,21 @@ console.log([1,2,3,4].reduce1((sum,item)=>{
     return sum+item
 },0))
 */
+
+//js动画
+/*function anim(x,y,x2,y2) {
+    var box=document.getElementsByClassName('g')[0];
+    var duration=5000;
+
+    var time=duration/10;
+    var flag=0;
+    var speedx=(x2-x)/time;
+    var speedy=(y2-y)/time;
+    var timeout=setInterval(function () {
+        flag++;
+        if(time==flag) clearInterval(timeout)
+        box.style.left=(x+speedx*(flag))+'px';
+        box.style.top=(y+speedy*(flag))+'px';
+        console.log(1)
+    },10)
+}*/
