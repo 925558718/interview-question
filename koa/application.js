@@ -7,7 +7,6 @@ module.exports=class Application extends Emitter{
         super();
         this.middleware=[];
         this.context = Object.create(context);
-
     }
 
     listen(...arg){

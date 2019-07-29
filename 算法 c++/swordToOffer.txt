@@ -461,7 +461,6 @@ int p(vector<int>& arr, int l, int r) {
 		while (l < r && arr[r] >= temp) {
 			r--;
 		}
-
 		while (l < r && arr[l] <= temp) {
 			l++;
 		}

@@ -11,16 +11,16 @@
 </head>
 <body>
     <h1 id="name">{{name}}</h1>
-
+    <input oninput="change(event)">
     <script type="text/javascript">
         let ele=document.querySelector('#name');
         let self=new SelfVue({
-            name:'gaga'
+            name:''
         },ele,'name')
-        window.setTimeout(function () {
-            console.log(self)
-            self.name='canfoo'
-        },2000)
+        function change(e) {
+            console.log(e)
+            self.name=e.target.value;
+        }
 
     </script>
 </body>

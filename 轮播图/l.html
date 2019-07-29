@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="l.css">
+</head>
+<body>
+    <div id="container">
+        <div class="phtot">
+            <div class="a"></div>
+            <div class="b"></div>
+            <div class="c"></div>
+        </div>
+    </div>
+    <script>
+        var el=document.getElementsByClassName('phtot')[0];
+        let index=0;
+
+        setInterval(function () {
+            /*for (let i=0;i<el.children.length;i++){
+                if (index==i){
+                    el.children[index].style.display='block';
+                }else{
+                 el.children[i].style.display='none';
+                }
+            }
+
+            index++;
+            if (index==el.children.length) index=0;*/
+
+        },2000)
+    </script>
+</body>
+</html>

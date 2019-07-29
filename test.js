@@ -1,35 +1,9 @@
 
 
-/*Function.prototype.call1=function () {
-    let [thisArg,...args]=[...arguments]
-    if (!thisArg){
-        thisArg=typeof window==='undefined'?global:window
-    }
-    console.log(this)
-    thisArg.func=this;
-    let res=thisArg.func(...args);
-    delete thisArg.func;
-    return res;
-}
-function gaga() {
-    console.log(this.a)
-}
-obj={
-    a:2
-}
-gaga.call1(obj)*/
-
+/*
 /*
 
-
-
-
-
-
-
 //数组方法
-
-/!*let test=[1,2,3,4,5];*!/
 
 /!*test.forEach(item=>{
     console.log(item)
@@ -39,7 +13,7 @@ gaga.call1(obj)*/
 /!*a=test.map(item=>{
     return item+=1;
 })
-console.log(a)*!/
+!/
 
 //filter筛选
 /!*
@@ -53,7 +27,7 @@ console.log(b)
 /!*c=test.some(item=>{
     return item>4
 })
-console.log(c)*!/
+
 //every
 /!*
 d=test.every(item=>{
@@ -70,7 +44,6 @@ d=test.every(item=>{
 /!*e=test.reduce((sum,w)=>{
     return sum+w;
 },0)
-console.log(e)*!/
 
 
 
@@ -90,14 +63,10 @@ sub.prototype=new superOb();
 *!/
 
 /!*
-var gaga = new sub();
-var gaga2 = new sub();
-
 function sub() {
     superOb.call(this)
 }
 function superOb() {
-
 }*!/
 
 //组合
@@ -142,7 +111,7 @@ function superOb() {
 sub.prototype=Object.create(superOb.prototype)
 *!/
 
-/!*str="https://www.nowcoder.com/discuss/200419?type=0&order=0&pos=3&page=1"
+/!
 function getParmam(str) {
     var index=str.indexOf("?")
     var res=str.slice(index+1,str.length)
@@ -153,12 +122,11 @@ function getParmam(str) {
 
         data[gaga[0]]=item[1];
     })
-    console.log(data)
+
 }
-getParmam(str)*!/
 
 //去重
-/!*let arr=[1,2,3,4,56,4,3,2,3]
+
 
 /!*!/!*function f(arr) {
     let hash=[];
@@ -171,8 +139,8 @@ getParmam(str)*!/
 }*!/
 f(arr)*!/
 
-let res=new Set(arr)
-console.log(res)*!/
+let res=new Set(arr)/
+
 
 //深拷贝
 
@@ -189,11 +157,6 @@ console.log(res)*!/
     }
     return res;
 }
-let obj={s:2,b:3,c:{gaga1:1, gaga2:{
-        hoo:1,hoo2:2
-        }}}
-console.log(copy(obj))*!/
-
 
 //new
 
@@ -265,6 +228,7 @@ console.log(test)
     imgaes.forEach(i=>{
         if (i.getBoundingClientRect().top<window.clientHeight){
             i.src='https://sedasdsa'
+            getBoundingClientReact()
         }
     })
 }*/
@@ -294,21 +258,6 @@ function dou(func,wait) {
     }
 }
 
-function double(func,wait) {
-    let timeout;
-    return function () {
-        if (timeout) clearTimeout(timeout)
-        else{
-            timeout=setTimeout(()=>{
-                func()
-            },wait)
-        }
-    }
-}
-*/
-/*function curry(fn,...arg) {
-    return fn.length>arg.length?(...arguments)=>curry(fn,...arg,...arguments):fn(...arg)
-}*/
 /*class EventEmitter{
     constructor(){
         this.eventpool={};
@@ -333,16 +282,7 @@ function double(func,wait) {
 }*/
 
 /*
-function a() {
-    this.b = 3
-    console.log(this)
-}
-a.prototype.b = 7;
-var t = new a();
-var b = 2;
-a();
 
-console.log(this)
 */
 
 /*
@@ -534,7 +474,7 @@ console.log(Array.from(str).reverse().join(""))
 
 
 /*
-var res=[]
+
 function f(arr,res) {
 
     arr.forEach(item=>{
@@ -549,7 +489,6 @@ function f(arr,res) {
 f([2,3,4,[5,66,[7,8]]],res)
 console.log(res)
 
-console.log([2,3,4,[5,66,[7,8]]].flat(3))
 
 */
 /*
@@ -595,15 +534,12 @@ Array.prototype.reduce1=function (handler,init) {
     return value;
 }
 
-console.log([1,2,3,4].reduce1((sum,item)=>{
-    return sum+item
-},0))
+
 */
 
 //js动画
-/*function anim(x,y,x2,y2) {
+/*function anim(x,y,x2,y2,duration) {
     var box=document.getElementsByClassName('g')[0];
-    var duration=5000;
 
     var time=duration/10;
     var flag=0;
@@ -617,3 +553,25 @@ console.log([1,2,3,4].reduce1((sum,item)=>{
         console.log(1)
     },10)
 }*/
+/*
+
+Promise.all=function (promises) {
+    return new Promise((resolve,reject)=>{
+        promises=Array.from(promises);
+        if(promises.length==0) resolve([]);
+        let result=[];
+        promises.forEach((item,index)=>{
+            Promise.resolve(promises[index]).then(data=>{
+                result[index]=data;
+                if(result.length==promises.length) resolve(result)
+            },err=>{
+                reject(err);
+            })
+        })
+    })
+}
+*/
+Function.prototype.a = 1
+Object.prototype.a = 2
+console.log(Object.a)
+
