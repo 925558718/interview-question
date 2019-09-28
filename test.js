@@ -1,5 +1,3 @@
-
-
 /*
 /*
 
@@ -178,7 +176,6 @@ let res=new Set(arr)/
 //柯里化
 /*
 const curry=(fn,...args)=>{
-    console.log(args)
     return args.length<fn.length?(...arguments)=>curry(fn,...args,...arguments):fn(...args)
 }
 
@@ -274,7 +271,7 @@ function dou(func,wait) {
         this.eventpool[event]&&delete this.eventpool[event]
     }
     once(event,callback){
-        this.on(e5vent,(...args)=>{
+        this.on(event,(...args)=>{
             callback(...args);
             this.off(event);
         })
@@ -390,10 +387,12 @@ Function.prototype.apply=function (context,rest) {
 }
 //bind
 
-Function.prototype.bind=function (context) {
-
+Function.prototype.bind=function () {
+    let [ctx,...args]=arguments;
+    ctx.fn=this;
+    let tes=ctx.fn(...args);
+    if()
 }*/
-
 
 
 /*
@@ -571,7 +570,47 @@ Promise.all=function (promises) {
     })
 }
 */
-Function.prototype.a = 1
-Object.prototype.a = 2
-console.log(Object.a)
 
+/*
+function setCookie(name,value) {
+    var Days=1;
+    var data=new Date();
+
+    console.log( name+'='+value+";expires="+data.getTime()+Days*24*60*60*1000);
+}
+setCookie('ha',{a:1})
+*/
+//遍历对象方法
+/*
+Object.keys();
+for(let i in a)
+for(let i of a)
+Object.getOwnPropertyNames()
+Reflect.ownKeys()
+*/
+
+//获取原型
+/*
+Object.getPrototypeOf(a)
+*/
+//偏函数
+/*
+function pian(fn,...args) {
+    for(let i=args.length;i<fn.length;i++){
+        args.push(undefined)
+    }
+    return (...remainArgs)=>{
+        let j=0;
+        args.forEach((item,index)=>{
+            if(item===undefined)
+                args[index]=remainArgs[j+1];
+        })
+        return fn(...args)
+    }
+}
+function sum(a,b,c) {
+    return a+b+c;
+}
+var p=pian(sum,1,2,3)
+console.log(p())
+*/

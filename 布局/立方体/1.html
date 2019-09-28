@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #rect{
+            position: fixed;
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: ROTATE 5s infinite;
+
+        }
+        #rect>div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        #a{
+            background: aqua;
+            transform: translateZ(100px);
+        }
+        #b{
+            background: blue;
+            transform: translateZ(-100px);
+        }
+        #c{
+            background: red;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        #d{
+            background: black;
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+        #e{
+            background: rosybrown;
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        #f{
+            background: fuchsia;
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+        @keyframes ROTATE {
+            from{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="rect">
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="c"></div>
+        <div id="d"></div>
+        <div id="e"></div>
+        <div id="f"></div>
+    </div>
+</body>
+</html>

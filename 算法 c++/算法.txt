@@ -38,9 +38,9 @@ ListNode* reverseList(ListNode* head) {
 反转二叉树
 //if(!root) return NULL ;
         //TreeNode *temp=root->left;
-        //root->left=invertTree(root->right);
-        //root->right=invertTree(temp);
-        //return root;
+                              //root->left=invertTree(root->right);
+                              //root->right=invertTree(temp);
+                              //return root;
         if(!root) return NULL;
         queue<TreeNode *> q;
         q.push(root);

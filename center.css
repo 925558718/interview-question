@@ -1,1 +1,11 @@
+.dialog{
+    position: absolute;
 
+
+    width: 200px;
+    height: 200px;
+    background: red;
+}
+body{
+    height: 100vh;
+}
