@@ -9,3 +9,4 @@ function FindGreatestSumOfSubArray(array)
     }
     return res;
 }
+

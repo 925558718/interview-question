@@ -1,0 +1,3 @@
+var countAndSay = function(n) {
+
+};
