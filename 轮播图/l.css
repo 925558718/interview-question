@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+#container{
+    height: 300px;
+    width: 500px;
+    overflow: hidden;
+}
+.phtot{
+    height: 300px;
+    width: 1500px;
+}
+.img{
+    height:300px;
+    width: 500px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.a{
+    background: red;
+}
+.b{
+    background: bisque;
+}
+.c{
+    background: teal;
+}
