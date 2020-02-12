@@ -1,20 +1,21 @@
 var reverseKGroup = function(head, k) {
-    let cur=head;
-    let count=0;
-    while(cur&&count!=k){
-        cur=cur.next;
-        count++;
-    }
-    if(count==k){
-        cur=reverseKGroup(cur,k);
-        while(count){
-            count++;
-            let temp=head.next;
-            head.next=cur;
-            cur=head;
-            head=temp;
+    if(!head) return head;
+    let dummy=new ListNode(-1);
+    dummy.next=head;
+    let len=0;
+    let pre=dummy
+    let cur=pre;
+    while(cur=cur.next) len++;
+    while(len>=k){
+        cur=pre.next;
+        for(let i=0;i<k-1;i++){
+            let t=cur.next;
+            cur.next=t.next;
+            t.next=pre.next;
+            pre.next=t;
         }
-        head=cur;
+        pre=cur;
+        len-=k;
     }
-    return head;
+    return dummy.next;
 };
