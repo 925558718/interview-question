@@ -1,14 +1,15 @@
 
-var strStr = function(haystack, needle) {
-    if(needle.length==0) return 0;
-    let len=needle.length;
-    for(let i=0;i<=haystack.length-len;i++){
-        let j=0;
-        for(j=0;j<len;j++){
-            if(needle[j]!=haystack[j+i]) break;
-        }
-        if(j==len) return i;
-    }
-    return -1;
+var subsets = function(nums) {
+    let res=[];
+    help(nums,res,[],0);
+    return res;
 };
+function help(nums,res,out,level){
+    if(level==nums.length) {
+        res.push(out)
+        return;
+    }
+    help(nums,res,out.concat(nums[level]),level+1);
+    help(nums,res,out,level+1);
+}
 console.log(strStr('hello','ll'));
