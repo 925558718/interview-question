@@ -1,9 +1,7 @@
 let res=0-Number.MAX_VALUE;
 var maxPathSum = function(root) {
-    
     helper(root);
     return res;
-    
 };
 function helper(node,obj){
     if(!node) return 0;
