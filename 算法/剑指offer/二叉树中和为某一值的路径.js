@@ -11,7 +11,6 @@ function help(root,expectNumber,out,res){
         res.push(out.concat(root.val));
         return;
     }
-    
     help(root.left,expectNumber-root.val,out.concat(root.val),res);
     help(root.right,expectNumber-root.val,out.concat(root.val),res);
 }

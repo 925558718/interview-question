@@ -1,3 +1,0 @@
-var firstMissingPositive = function(nums) {
-   
-};

@@ -395,19 +395,7 @@ Function.prototype.bind=function () {
 }*/
 
 
-/*
-function sum(a,b) {
-    let A=(a+'').split('');
-    let B=(b+'').split('');
-    let lenA=A.length,lenB=B.length,lenC=Math.max(lenA,lenB)+1;
-    let res=[],count=0;
-    for (let i=0;i<lenC-1;i++){
-        let a=lenA-i-1>=0?parseInt( A[lenA-i-1]):0,b=lenB-i-1>=0?parseInt( B[lenB-i-1]):0
-        res[i]=(a+b+count)%10;
-        count=(a+b)>9?1:0
-    }
-    return res.reverse().join('');
-}*/
+
 /*
 console.log=(function (log) {
     return function(str){
@@ -431,14 +419,7 @@ console.log(Reflect.getPrototypeOf(a))
 console.log(Reflect.ownKeys(a))*/
 
 
-//递归遍历数组
-/*var arr=[1,2,3]
-function a(arr,index) {
-    if (index==arr.length) return;
-    console.log(arr[index])
-    a(arr,index+1)
-}
-a(arr,0)*/
+
 
 /*
 function jsonp(url,param,callback) {

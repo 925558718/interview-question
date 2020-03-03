@@ -19,9 +19,5 @@ function GetNumberOfK(data, k)
             right=mid;
         }
     }
-    
-    
-    
-    
 }
 GetNumberOfK([1,1,2,2,2,3],2)

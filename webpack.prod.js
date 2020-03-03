@@ -31,7 +31,6 @@ module.exports=merge(common,{
             cacheGroups: {
                 commons:{
                     test:/[\\/]node_modules[\\/]/,
-
                     chunks: "all",
                 },
             }

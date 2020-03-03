@@ -4,7 +4,6 @@ var isSubStructure = function(pRoot1, pRoot2) {
     if(!pRoot2) return false;
     if(same(pRoot1,pRoot2)) return true;
     return isSubStructure(pRoot1.left,pRoot2)||isSubStructure(pRoot1.right,pRoot2);
-    
 }
 function same(left,right){
     if(!right) return true;
