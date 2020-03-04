@@ -5,10 +5,8 @@ var isValid = function(s) {
             stack.push(s[i])
         }
         else{
-            let c=stack[stack.length-1];
-            stack.pop()
+            let c=stack.pop()
             if(typeof c=='undefined') return false;
-            console.log(c,s[i]);
             if(c=='('&&s[i]!=')') return false;
             if(c=='{'&&s[i]!='}') return false;
             if(c=='['&&s[i]!=']') return false;
@@ -16,4 +14,4 @@ var isValid = function(s) {
     }
     return stack.length==0;
 };
-console.log(isValid('[]'));
+console.log(isValid('[]]'));

@@ -1,22 +1,17 @@
 var countAndSay = function(n) {
+    if(n<=0) return "";
     let res="1";
-    let i=1;
-    while(i<n){
+    while(--n){
         let cur="";
-        let num=1;
-        for(let j=1;j<res.length;j++){
-            if(res[j]==res[j-1]){
-                num++;
-            }else{
-                cur+=num;
-                cur+=res[j-1];
-                num=1;
+        for(let i=0;i<res.length;i++){
+            let cnt=1;
+            while(i+1<res.length&&res[i]==res[i+1]){
+                ++cnt;
+                i++;
             }
+            cur=cnt+res[i];
         }
-        cur+=num;
-        cur+=res[res.length-1];
         res=cur;
-        i++;
     }
     return res;
 };

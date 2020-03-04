@@ -5,7 +5,7 @@ var generateParenthesis = function(n) {
 };
 function help(left,right,s,res,n){
     if(left<right||left>n||right>n) return;
-    if(left==n&&right==n&&left==right){
+    if(left==n&&right==n){
         res.push(s);
         return;
     }

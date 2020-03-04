@@ -2,11 +2,7 @@ var permute = function(nums) {
     let res=[];
     let out=[];
     let visited=new Array(nums.length).fill(-1);
-    
-    
     function help(level,res,nums,out,visited){
-        
-        
         if(level==nums.length){
             res.push(out)
             return;

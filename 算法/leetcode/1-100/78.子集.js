@@ -5,11 +5,9 @@ var subsets = function(nums) {
     return res;
 };
 function help(nums,res,out,level){
-    if(level==nums.length) {
-        res.push(out)
-        return;
+    res.push(out);
+    for(let i=level;i<nums.length;i++){
+        help(nums,res,out.concat(nums[i]),i+1)
     }
-    help(nums,res,out.concat(nums[level]),level+1);
-    help(nums,res,out,level+1);
 }
-console.log(subsets('hello','ll'));
+console.log(subsets([1,2,3]));
