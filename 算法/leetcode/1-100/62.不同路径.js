@@ -1,7 +1,7 @@
 var uniquePaths = function(m, n) {
     let dp=new Array(n);
     for(let i=0;i<n;i++){
-        dp[i]=new Array(m).fill(0);
+        dp[i]=new Array(m).fill(1);
     }
     for(let i=1;i<n;i++){
         for(let j=1;j<m;j++){
