@@ -1,5 +1,4 @@
 var strStr = function(haystack, needle) {
-
     let len=needle.length;
     if(len==0) return 0;
     let left=0;

@@ -595,3 +595,17 @@ function sum(a,b,c) {
 var p=pian(sum,1,2,3)
 console.log(p())
 */
+function log(num){
+    return new Promise(res=>{
+        console.log("log");
+        setTimeout(()=>{
+            console.log(num*num);
+        },num*1000)
+    })
+}
+const arr=[1,2,3];
+arr.forEach(async item=>{
+    const res=await log(item);
+    console.log(res);
+    
+})

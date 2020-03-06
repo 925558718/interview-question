@@ -11,8 +11,6 @@ var isValidSudoku = function(board) {
     for(let i=0;i<9;i++){
         cellFlag[i]=new Array(9).fill(false)
     }
-    
-
     for(let i=0;i<9;i++){
         for(let j=0;j<9;j++){
             if(board[i][j]=='.') continue;

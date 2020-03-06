@@ -1,22 +1,23 @@
-class Game {
+class EventEmitter{
     constructor(){
-        this.mainBall=new ball();
-        this.ballpool=[];
-        for (let i=0;i<9;i++){
-            this.ballpool.push(new ball())
+        this.pool={};
+    }
+    on(type,fn){
+        !this.pool[type]?this.pool[type]=[fn]:this.pool[type].push(fn);
+    }
+    emit(type){
+        this.pool[type]&&this.pool[type].forEach(item=>item())
+    }
+    off(type,fn){
+        if(this.pool[type]){
+            this.pool[type]=this.pool[type].filter(cb=>cb!=fn)
+        };
+    }
+    once(type,fn){
+        let cb=()=>{
+            fn();
+            this.off(type,fn)
         }
-        this.animate()
-
-    }
-    animate(){
-        console.log(1)
-        requestAnimationFrame(this.animate)
+        this.on(type,fn)
     }
 }
-class ball {
-
-}
-class stick {
-
-}
-var game=new Game()
