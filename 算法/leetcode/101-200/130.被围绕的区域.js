@@ -1,0 +1,3 @@
+var solve = function(board) {
+
+};
