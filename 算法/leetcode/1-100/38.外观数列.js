@@ -15,3 +15,4 @@ var countAndSay = function(n) {
     }
     return res;
 };
+console.log(countAndSay(3));

@@ -15,7 +15,6 @@ function help(s,res,out,level){
     if(level==3){
         out.push(s.substr(0,s.length))
         res.push(out);
-        
         return;
     }
     for(let i=1;i<=3;i++){

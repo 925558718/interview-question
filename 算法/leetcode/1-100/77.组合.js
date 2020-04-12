@@ -8,8 +8,8 @@ function help(res,level,out,k,n){
       res.push(out);
       return;
   }
-  for(let i=level+1;i<=n;i++){
-      help(res,i,out.concat(i),k,n)
+  for(let i=level;i<n;i++){
+      help(res,i+1,out.concat(i+1),k,n)
   }
 }
 console.log(combine(4,2));

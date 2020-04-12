@@ -6,8 +6,6 @@ var combinationSum2 = function(candidates, target) {
 };
 
 function help(target,candidates,res,start,out){
-    
-    
     if(target<0) return;
     if(0==target){
         res.push(out);

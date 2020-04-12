@@ -14,14 +14,11 @@ function check(s){
 }
 function dfs(s,res,out,start){
     if(start==s.length){
-        
         res.push(out);
         return;
     }
     for(let i=start;i<s.length;i++){
         let str=s.substr(start,i-start+1);
-        
-        
         if(check(str)) dfs(s,res,out.concat(str),i+1)
     }
 }

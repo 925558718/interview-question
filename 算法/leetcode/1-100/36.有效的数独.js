@@ -15,7 +15,10 @@ var isValidSudoku = function(board) {
         for(let j=0;j<9;j++){
             if(board[i][j]=='.') continue;
             let c=board[i][j]-'1';
-            if(rowFlag[i][c]||columnFlag[c][j]||cellFlag[3*Math.floor(i/3)+Math.floor(j/3)][c]) return false;
+            if(rowFlag[i][c]||
+                columnFlag[c][j]||
+                cellFlag[3*Math.floor(i/3)+Math.floor(j/3)][c]) 
+                return false;
             rowFlag[i][c]=true;
             columnFlag[c][j]=true;
             cellFlag[3*Math.floor(i/3)+Math.floor(j/3)][c]=true;

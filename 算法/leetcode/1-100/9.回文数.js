@@ -3,7 +3,7 @@ var isPalindrome = function(x) {
     let ori=x;
     let res=0;
     while(x){
-        res=res*10+Math.floor(x%10)
+        res=res*10+x%10
         x=Math.floor(x/10);
     }
     return ori===res;

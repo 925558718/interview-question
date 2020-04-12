@@ -6,7 +6,7 @@ var isValid = function(s) {
         }
         else{
             let c=stack.pop()
-            if(typeof c=='undefined') return false;
+            if(!c) return false;
             if(c=='('&&s[i]!=')') return false;
             if(c=='{'&&s[i]!='}') return false;
             if(c=='['&&s[i]!=']') return false;

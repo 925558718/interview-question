@@ -595,17 +595,97 @@ function sum(a,b,c) {
 var p=pian(sum,1,2,3)
 console.log(p())
 */
-function log(num){
-    return new Promise(res=>{
-        console.log("log");
-        setTimeout(()=>{
-            console.log(num*num);
-        },num*1000)
-    })
-}
-const arr=[1,2,3];
-arr.forEach(async item=>{
-    const res=await log(item);
-    console.log(res);
+// function log(num){
+//     return new Promise(res=>{
+//         console.log("log");
+//         setTimeout(()=>{
+//             console.log(num*num);
+//         },num*1000)
+//     })
+// }
+// const arr=[1,2,3];
+// arr.forEach(async item=>{
+//     const res=await log(item);
+//     console.log(res);
     
-})
+// })
+
+// class Map{
+//     constructor(){
+//         this.tong=new Array(8);
+//         for(let i=0;i<8;i++){
+//             this.tong[i]=new Object();
+//             this.tong[i].next=null;
+//         }
+//     }
+//     hash(key){
+//         let index=0;
+//         if(typeof key=="string"){
+//                 index=index+isNaN(key.charCodeAt(i))?0:key.charCodeAt(i)
+//         }else if(typeof key=='object'){
+//             index=0;
+//         }else if(typeof key=='number'){
+//             index=isNaN(key)?7:key;
+//         }else{
+//             index=1;
+//         }
+//         return index%8;
+//     }
+//     set(key,val){
+//         let index=this.hash(key);
+//         let bucket=this.tong[index];
+//         while(bucket.next){
+//             if(bucket.next.key=key){
+//                 bucket.next.val=val;
+//                 return;
+//             }else{
+//                 bucket=bucket.next;
+//             }
+//         }
+//         bucket.next={
+//             key:key,
+//             val:val,
+//             next:null
+//         }
+//     }
+//     get(key){
+//         let index=this.hash(key);
+//         let bucket=this.tong[index];
+//         while(bucket){
+//             if(bucket.key==key){
+//                 return bucket.val;
+//             }else{
+//                 bucket=bucket.next;
+//             }
+//         }
+//         return undefined;
+//     }
+// } es6 map 源码
+// function promisefy(fn){
+//     return function(...args){
+//         return new Promise((resolve)=>{
+//             let res=fn.call(null,...args);
+//             resolve(...args);    
+//         })
+//     }
+// }
+// function inherit(subClass,supClass){
+//     subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); 
+//     subClass.__proto__=superClass;
+
+// }
+
+// [1,2,3].forEach(async (item)=>{
+//     let res=await item;
+//     console.log(res);
+    
+// })
+
+
+// let reg=new RegExp(/\{\{(\w+)\}\}/g)
+// let s="i am {{name}} a".replace(reg,function(match,key){
+//     console.log(data[key]);
+    
+//     return data[key]
+// })
+// console.log(s);

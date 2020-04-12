@@ -1,0 +1,16 @@
+.checkgroup .item{
+    height: 42px;
+    line-height: 42px;
+    padding: 0 10px;
+    margin: 10px 0;
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+}
+.checkgroup.radius .item{
+    border-radius: 21px;
+}
+.checkgroup .item.selected{
+    border: 1px solid #08b292;
+    background: #08b292;
+    color: #ffffff;
+}

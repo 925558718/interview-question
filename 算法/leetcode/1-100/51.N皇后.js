@@ -10,12 +10,8 @@ var solveNQueens = function(n) {
     return res;
 };
 function help(level,queens,res){
-    
-    
     let n=queens.length;
     if(level==n){
-        
-        
         res.push(JSON.stringify(queens));
         return;
     }
