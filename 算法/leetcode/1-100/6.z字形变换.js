@@ -7,9 +7,6 @@ var convert = function(s, numRows) {
         for(let pos=0;pos<numRows&&i<n;++pos){ 
             vec[pos]+=s[i++];
         }
-        console.log(vec);
-        
-        
         for(let pos=numRows-2;pos>=1&&i<n;--pos){
             vec[pos]+=s[i++];
         }

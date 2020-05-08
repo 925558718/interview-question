@@ -689,3 +689,109 @@ console.log(p())
 //     return data[key]
 // })
 // console.log(s);
+
+
+
+// function help(url,limit) {
+//     return new Promise((resolve,reject)=>{
+//         let result=[];
+//         let count=0;
+//         let index=limit;
+//         let next=function() {
+//             if(index>=url.length) return;
+//             wait(url[index++]).then(res=>{
+//                 result.push(res);
+//                 count++;
+//                 if(count==url.length) {resolve(result);}
+//                 next();
+//             })
+//         }
+//         for(let i=0;i<limit;i++){
+//             wait(url[i]).then(res=>{
+//                 result.push(res);
+//                 count++;
+//                 if(count==url.length) resolve(result)
+//                 next();
+//             })
+//         }
+//     })
+// }
+
+// function wait(time) {
+//     return new Promise(res=>{
+//         setTimeout(()=>{
+//             res(time);
+//         },time)
+//     })
+// }
+
+// help([1000,2000,3000,4000],2).then(res=>{
+//     console.log(res);
+// })
+
+// class E{
+//     constructor(){
+//         this.pool=Object.create(null)
+//     }
+//     add(type,fn){
+//         this.pool[type]?this.pool[type].push(fn):this.pool[type]=[fn];
+//     }
+//     once(type,fn){
+//         const that=this;
+//         let f=()=>{
+//             fn();
+//             that.delete(type,fn)
+//         }
+//         f.realCallback=fn;
+//         this.add(type,f)
+//     }
+//     delete(type,fn){
+//         if(!this.pool[type]) return;
+//         this.pool[type]=this.pool[type].filter(item=>{
+//             return item!==fn&&item.realCallback!==fn
+//         })
+//     }
+//     run(type){
+//         if(!this.pool[type]) return;
+//         for(let i=0;i<this.pool[type].length;i++){
+//                  this.pool[type][i]()
+//         }
+//     }
+// }
+// let fn=function(){
+//     console.log('nihao')
+// }
+// let e=new E();
+
+// function  help(url,limit){
+//     let index=0;
+//     return new Promise((resolve,reject)=>{
+//         let result=[];
+//         for(let i=0;i<limit;i++){
+//             async function next(){
+//                 while(index<url.length){
+//                     let res=await wait(url[index++])
+//                     result.push(res);
+//                     if(result.length==url.length) resolve(result)
+//                 }
+                
+//             }
+//             next()
+//         }
+        
+//     })
+// }
+
+//  help([1000,1000,1000,1000],4).then(res=>{
+//     console.log(res);
+// })
+
+// function wait(time){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(function(){
+//             resolve(time)
+//         },time)
+//     })
+// }
+
+

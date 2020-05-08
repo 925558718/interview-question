@@ -14,3 +14,4 @@ var longestValidParentheses = function(s) {
     }
     return res;
 };
+console.log(longestValidParentheses('(()'));

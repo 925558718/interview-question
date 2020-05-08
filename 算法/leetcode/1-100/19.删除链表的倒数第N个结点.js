@@ -10,14 +10,10 @@ var removeNthFromEnd = function(head, n) {
     for(let i=0;i<n;i++){
         cur=cur.next;
     }
-    
-    
     while(cur.next){
         cur=cur.next;
         pre=pre.next;
     }
-    
-    
     pre.next=pre.next.next;
     
     
