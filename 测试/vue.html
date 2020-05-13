@@ -30,41 +30,12 @@
     </div>
     <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <script>
-        Vue.component('loading',{
-            render:function(h){
-                return h('div',[
-                    h('div',{
-                        style:{
-                            height:'200px',
-                            width:'200px',
-                            background:'red'
-                        },
-                        attrs:{
-                            
-                        }
-                    },[]),
-                    h('button',{
-                        on:{
-                            click:function(){
-                                import('./index').then(res=>{
-                                    
-                                })
-                            }
-                        }
-                    },'点击')
-                ])
-            },
-            data(){
-                return {
-                    loading:false
-                }
-            },
-            mounted() {
-                console.log(1)
-            },
-        })
+       
         new Vue({
-            el:'#app'
+            el:'#app',
+            data:function(){
+                
+            }
         })
         
     </script>

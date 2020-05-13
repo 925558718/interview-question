@@ -142,8 +142,10 @@ let res=new Set(arr)/
 
 //深拷贝
 
-/!*function copy(obj) {
+/!*function copy(obj,hash=new Map()) {
+    if(hash.has(obj)) return hash.get(obj)
     const res=obj.constructor===Array?[]:{};
+    hash.set(obj,res)
     for (let keys in obj){
         if (obj.hasOwnProperty(keys)){
             if (obj[keys]&&typeof obj[keys]==='object'){
