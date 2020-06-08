@@ -7,6 +7,6 @@ var numTrees = function(n) {
             dp[i]+=(dp[j]*dp[i-j-1]);
         }
     }
-    return dp[n]
+    return dp[n];
 };
 console.log(numTrees(2));

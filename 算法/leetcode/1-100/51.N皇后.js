@@ -1,5 +1,4 @@
 
-
 var solveNQueens = function(n) {
     let res=[];
     let queens=new Array(n);
@@ -24,7 +23,6 @@ function help(level,queens,res){
     }
 }
 function isValid(queens,row,col){
-
     for(let i=0;i<row;i++){
         if(queens[i][col]=='Q') return false;
     }

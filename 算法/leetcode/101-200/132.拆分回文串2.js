@@ -1,8 +1,8 @@
 var minCut = function(s) {
     let n=s.length;
-    let arr=Array(n);
+    let p=Array(n);
     for(let i=0;i<n;i++){
-        arr[i]=Array(n).fill(false)
+        p[i]=Array(n).fill(false)
     }
 
     let dp=new Array(n);

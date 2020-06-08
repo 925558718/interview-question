@@ -4,15 +4,11 @@ var divide = function(dividend, divisor) {
     let b=Math.abs(divisor);
     if(a<b) return 0;
     let res=0;
-    let count=0;
     res=div(a,b)
     res=flag?res:-res;
-    
     if (res > 2147483647) return 2147483647;
     if (res < -2147483648) return -2147483648;
-
     return res;
-    
 };
 function div(a,b){
     if(a<b) return 0;

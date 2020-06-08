@@ -16,4 +16,4 @@ var multiply = function(num1, num2) {
     })
     return res
 };
-console.log(multiply("1","2"));
+console.log(multiply("10","20"));

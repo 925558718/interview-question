@@ -4,7 +4,6 @@ var maximalRectangle = function(matrix) {
     for(let i=0;i<matrix.length;i++){
         for(let j=0;j<matrix[i].length;j++){
             height[j]=matrix[i][j] == '0' ? 0 : (1 + height[j]);
-            
         }
         console.log(height)
         res=Math.max(res,help(height))

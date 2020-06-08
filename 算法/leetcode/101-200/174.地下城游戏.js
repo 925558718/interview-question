@@ -8,7 +8,6 @@ var calculateMinimumHP = function(dungeon) {
     for(let i=m-1;i>=0;i--){
         for(let j=n-1;j>=0;j--){
             console.log(dp);
-            
             dp[i][j]=Math.max(1,Math.min(dp[i+1][j],dp[i][j+1])-dungeon[i][j])
         }
     }

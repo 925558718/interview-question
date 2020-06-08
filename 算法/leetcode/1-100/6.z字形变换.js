@@ -1,6 +1,5 @@
 var convert = function(s, numRows) {
     if(numRows<=1) return s;
-    
     let i=0,n=s.length;
     let vec=new Array(numRows).fill("");
     while(i<n){

@@ -6,7 +6,7 @@ var mergeKLists = function(lists) {
     if(lists.length==0) return null;
     let l1=lists[0];
     for(let i=1;i<lists.length;i++){
-        l1=merge(l1,lists[2]);
+        l1=merge(l1,lists[i]);
     }
     return li;
 };

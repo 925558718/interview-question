@@ -18,7 +18,7 @@ function help(s,res,out,level){
         return;
     }
     for(let i=1;i<=3;i++){
-        help(s.substr(i,s.length-1),res,out.concat(s.substr(0,i)),level+1)
+        help(s.substr(i),res,out.concat(s.substr(0,i)),level+1)
     }
 }
 function check(arr){

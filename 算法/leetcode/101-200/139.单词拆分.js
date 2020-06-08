@@ -10,7 +10,5 @@ var wordBreak = function(s, wordDict) {
             }
         }
     }
-    
-    
     return dp[dp.length-1]
 };

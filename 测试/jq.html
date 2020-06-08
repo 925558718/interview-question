@@ -7,26 +7,10 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
-    <button style="display:none" onclick="">buy</button>
-    <div id='time'>
-    </div>
+    <input>
+    <button>click</button>
     <script>
-        window.onload=function(){
-            Promise.resolve({time:10000}).then(res=>{
-                let t=res.time;
-                let timer=setInterval(() => {
-                    t=t-1000;
-                    if(t==0){
-                        document.getElementsByTagName('button')[0].style.display='block'
-                        clearInterval(timer)
-                        document.getElementById('time').innerText=""
-
-                    }
-                    document.getElementById('time').innerText=new Date(t).getSeconds();
-                    
-                }, 1000);
-            })
-        }
+        $.get(1)
     </script>
 </body>
 </html>

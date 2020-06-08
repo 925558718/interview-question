@@ -7,7 +7,6 @@ var deleteDuplicates = function(head) {
     let dummy=new ListNode(-1);
     dummy.next=head;
     let pre=dummy;
-    
     while(pre.next){
         let cur=pre.next;
         while(cur.next&&cur.next.val==cur.val){

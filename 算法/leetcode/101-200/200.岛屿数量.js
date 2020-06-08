@@ -6,8 +6,6 @@ var numIslands = function(grid) {
     for(let i=0;i<column;i++){
         visited[i]=new Array(row).fill(0);
     }
-    
-    
     let res=0;
     for(let i=0;i<column;i++){
         for(let j=0;j<row;j++){

@@ -8,7 +8,7 @@ var insertionSortList = function(head) {
         let t=cur.next;
         cur=dummy;
         while(cur.next&&cur.next.val>head.val){
-            cur.next;
+            cur=cur.next;
         }
         head.next=cur.next;
         cur.next=head;

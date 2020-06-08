@@ -1,28 +1,31 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        li{
-            height: 100px;
-            width: 100px;
-            background: red;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+  </style>
 </head>
 <body>
-    <ul id='content'>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <script>
-        document.getElementById('content').addEventListener('click',function(e){
-            console.log(e.currentTarget);
-            
-        })
-    </script>
+    <input type="text" value="33"/>
+  <button id="bt" >click</button>
+  <script>
+     let input=document.getElementsByTagName('input')[0]
+      input.value=33
+      let bt=document.getElementById('bt');
+      bt.addEventListener('click',function(){
+        input.value=1
+        
+        
+        console.log(1);
+        
+      })
+      
+  </script>
 </body>
 </html>

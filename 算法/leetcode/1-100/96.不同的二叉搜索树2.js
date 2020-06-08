@@ -2,10 +2,6 @@ function TreeNode(val) {
      this.val = val;
      this.left = this.right = null;
 }
-var generateTrees = function(n) {
-    if(n==0) return {};
-    return help(1,n);
-};
 function help(start,end){
     if(start>end) return null;
     let res=[];
@@ -19,7 +15,6 @@ function help(start,end){
                 res.push(node)
             }
         }
-        
     }
     return res;
 }

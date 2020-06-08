@@ -8,4 +8,4 @@ var convertToTitle = function(n) {
     return res.split("").reverse().join("");
     
 };
-convertToTitle(52)
+console.log(convertToTitle(1));

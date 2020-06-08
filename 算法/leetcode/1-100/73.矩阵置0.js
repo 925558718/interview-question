@@ -8,7 +8,6 @@ var setZeroes = function(matrix) {
     for(let i=0;i<n;i++){
         if(matrix[0][i]==0) rowZero=true;
     }
-
     for(let i=1;i<m;i++){
         for(let j=1;j<n;j++){
             if(matrix[i][j]==0){
