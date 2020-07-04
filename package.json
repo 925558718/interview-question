@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "watch": "webpack watch",
-    "ts-build": "tsc -p .:live"
+    "ts-build": "tsc -p .:live",
+    "run":"node vue/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,18 +1,25 @@
-class Dep {
-    constructor() {
-        this.subs = [];
+let uid=0;
+class Dep{
+    constructor(){
+        this.id=uid++;
+        this.pool=[];
     }
-
-    addSub(sub) {
-        this.subs.push(sub)
+    add(watcher){
+        this.pool.push(watcher)
     }
-
-    notify() {
-        this.subs.forEach(function (sub) {
-            sub.update();
+    notify(){
+        this.pool.forEach(item=>{
+            item.update()
         })
     }
+    remove(watcher){
+        let index=this.pool.indexOf(watcher);
+        return this.pool.splice(index,1);
+    }
+    depend(){
+        if(global.target){
+            global.target.addDep(this)
+        }
+    }
 }
-Dep.target=null;
-
-
+exports.Dep=Dep

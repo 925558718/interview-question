@@ -8,24 +8,53 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    
+    .sig{
+        width: 0;
+        height: 0;
+        border: 20px solid black;
+        border-color: transparent transparent transparent black;
+        animation: anim 1s linear infinite ;
+        transform-origin:center bottom;
+    }
+    @keyframes anim{
+        from{
+            transform: rotate(0);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
   </style>
 </head>
 <body>
-    <input type="text" value="33"/>
-  <button id="bt" >click</button>
-  <script>
-     let input=document.getElementsByTagName('input')[0]
-      input.value=33
-      let bt=document.getElementById('bt');
-      bt.addEventListener('click',function(){
-        input.value=1
+    
+    <button>click</button>
+    <script>
+        function debounce(fn,wait,immediate){
+    let timer=null;
+    return function(...args){
+        const that=this;
+
+        timer&&clearTimeout(timer);
         
-        
-        console.log(1);
-        
-      })
-      
-  </script>
+        if(immediate){
+            console.log('immediate')
+            const doNow=!timer;
+            timer=setTimeout(()=>{
+                timer=null;
+            },wait)
+            doNow&&fn.call(that,...args)
+        }else{
+            console.log('timer')
+            timer=setTimeout(()=>{
+                fn.call(that,...args)
+            },wait)
+        }
+    }
+}
+    document.getElementsByTagName("button")[0].addEventListener("click",debounce(function(){
+        console.log('click');
+    },1000,true))
+    </script>
 </body>
 </html>

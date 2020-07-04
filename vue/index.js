@@ -1,42 +1,14 @@
-/*
-function SelfVue(data,el,exp) {
-    this.data=data;
-    observe(data);
-    el.innerHTML=this.data[exp];
-    new Watcher(this,exp,function (v) {
-        el.innerHTML=v;
-    })
-    return this;
-}
-*/
-function SelfVue(data,el,exp) {
-    var self=this;
-    this.data=data;
-    Object.keys(data).forEach(function (key) {
-        self.proxyKeys(key)
-    })
-
-    observe(data)
-
-    el.innerHTML=this.data[exp];
-
-    new Watcher(this,exp,function (v) {
-        el.innerHTML=v;
-    });
-    return this;
-}
+const {observer}=require('./Observer')
+const {watcher}=require('./watcher')
 
 
-SelfVue.prototype={
-    proxyKeys:function (key) {
-        var self=this;
-        Object.defineProperty(this,key,{
-            get() {
-                return self.data[key]
-            },
-            set(v) {
-                self.data[key]=v;
-            }
-        })
+const vm={
+    data:{
+        a:[1,2,3]
     }
 }
+
+new watcher(vm,(vm)=>{
+    console.log(vm.push(1232));
+},'data.a')
+vm.data.a=123
