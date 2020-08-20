@@ -389,12 +389,27 @@ Function.prototype.apply=function (context,rest) {
 }
 //bind
 
-Function.prototype.bind=function () {
-    let [ctx,...args]=arguments;
-    ctx.fn=this;
-    let tes=ctx.fn(...args);
-    if()
-}*/
+Function.prototype.bind1=function(obj){
+    let slice=Array.prototype.slice;
+    let args=slice.call(arguments,1);
+    let fn=this;
+    function resultFn(){
+        console.log(this.prototype);
+        let arg=slice.call(arguments,0)
+        console.log(resultFn.prototype.isPrototypeOf(this));
+        return fn.apply(
+            resultFn.prototype.isPrototypeOf(this)?this:obj,
+            args.concat(arg)
+        )
+    }
+    resultFn.prototype = fn.prototype;
+    console.log();
+    return resultFn;
+}
+
+
+
+*/
 
 
 

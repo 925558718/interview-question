@@ -9,7 +9,8 @@
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "watch": "webpack watch",
     "ts-build": "tsc -p .:live",
-    "run":"node vue/index.js"
+    "run":"node vue/index.js",
+    "jest":"jest"
   },
   "repository": {
     "type": "git",

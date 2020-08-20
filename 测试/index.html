@@ -8,53 +8,30 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    .sig{
-        width: 0;
-        height: 0;
-        border: 20px solid black;
-        border-color: transparent transparent transparent black;
-        animation: anim 1s linear infinite ;
-        transform-origin:center bottom;
-    }
-    @keyframes anim{
-        from{
-            transform: rotate(0);
+        body{
+            width: 100vw;
+            height: 100vh;
         }
-        to{
-            transform: rotate(360deg);
-        }
-    }
+      .parent{
+          display: flex;
+          width: 50%;
+          height: 50%;
+          background: blue;
+          justify-content: space-between;
+      }
+      .child{
+          width: 10vw;
+          height: 10vw;
+          background: red;
+      }
   </style>
 </head>
 <body>
-    
-    <button>click</button>
-    <script>
-        function debounce(fn,wait,immediate){
-    let timer=null;
-    return function(...args){
-        const that=this;
-
-        timer&&clearTimeout(timer);
-        
-        if(immediate){
-            console.log('immediate')
-            const doNow=!timer;
-            timer=setTimeout(()=>{
-                timer=null;
-            },wait)
-            doNow&&fn.call(that,...args)
-        }else{
-            console.log('timer')
-            timer=setTimeout(()=>{
-                fn.call(that,...args)
-            },wait)
-        }
-    }
-}
-    document.getElementsByTagName("button")[0].addEventListener("click",debounce(function(){
-        console.log('click');
-    },1000,true))
-    </script>
+    <div class="parent">
+        <div class="child"></div>    
+        <div class="child"></div>   
+        <div class="child"></div>   
+        <div class="child"></div>   
+    <div>
 </body>
 </html>
