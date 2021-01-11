@@ -1,17 +1,12 @@
 {
   "name": "interview-question",
   "version": "1.0.0",
-  "description": "这个仓库是我从各个论坛搜集的面试题答案，为了防止被删除建的",
-  "main": "test.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "watch": "webpack watch",
-    "ts-build": "tsc -p .:live",
-    "run":"node vue/index.js",
-    "jest":"jest"
+    "test": "jest"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/925558718/interview-question.git"
@@ -22,8 +17,14 @@
     "url": "https://github.com/925558718/interview-question/issues"
   },
   "homepage": "https://github.com/925558718/interview-question#readme",
-  "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.0.0"
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.0.0-next.1",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^27.0.0-next.1",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.12.11"
   }
 }
