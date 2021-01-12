@@ -1,38 +1,4 @@
-// var LRUCache = function(capacity) {
-//     this.m=new Map();
-//     this.capacity=capacity;
-// };
 
-// /** 
-//  * @param {number} key
-//  * @return {number}
-//  */
-// LRUCache.prototype.get = function(key) {
-//     if(this.m.has(key)){
-//         let temp=this.m.get(key);
-//         this.m.delete(key);
-//         this.m.set(key,temp);
-//         return temp;
-//     }else{
-//         return -1;
-//     }
-// };
-
-// /** 
-//  * @param {number} key 
-//  * @param {number} value
-//  * @return {void}
-//  */
-// LRUCache.prototype.put = function(key, value) {
-//     if(this.m.has(key)){
-//         this.m.delete(key);
-//     }else if(this.m.size>=this.capacity){
-//         this.m.delete(this.m.keys().next().value)
-//     }
-//     cache.set(key, value);
-// };
-// let cache=new LRUCache();
-// cache.put(1,1)
 function node(key,value){
     this.key=key;
     this.value=value;
