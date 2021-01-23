@@ -23,13 +23,13 @@
 //         else right=mid;
 //     }
 //     console.log(right-1);
-    
+
 //     index = (right > 0) ? (right - 1) : right;
 //     left=0,right=matrix[0].length-1;
 //     while(left<=right){
 //         let mid=(left+right)>>1;
 //         console.log(matrix[index][mid]);
-        
+
 //         if(matrix[index][mid]<target){
 //             left=mid+1;
 //         }else if(matrix[index][mid]>target){
@@ -41,28 +41,26 @@
 //     return false;
 // };
 
-var searchMatrix = function(matrix, target) {
-    if(matrix.length==0||matrix[0].length==0) return false;
+var searchMatrix = function (matrix, target) {
+  if (matrix.length == 0 || matrix[0].length == 0) return false;
 
-    let row=matrix.length,column=matrix[0].length;
+  let row = matrix.length,
+    column = matrix[0].length;
 
-    let left=0,right=row*column;
+  let left = 0,
+    right = row * column;
 
-    while(left<right){
+  while (left < right) {
+    let mid = Math.floor((left + (right - left)) / 2);
 
-        let mid=Math.floor((left+(right-left))/2)
-        
-        
-        let x=Math.floor(mid/row);
-        let y=mid%row;
-       
-        
-        if(matrix[x][y]== target) return true;
+    let x = Math.floor(mid / row);
+    let y = mid % row;
 
-        if(matrix[x][y]<target) left=mid+1;
+    if (matrix[x][y] == target) return true;
 
-        else right=mid-1;
-    }
-    return false;
+    if (matrix[x][y] < target) left = mid + 1;
+    else right = mid - 1;
+  }
+  return false;
 };
-console.log(searchMatrix([[1,1]],2));
+console.log(searchMatrix([[1, 1]], 2));

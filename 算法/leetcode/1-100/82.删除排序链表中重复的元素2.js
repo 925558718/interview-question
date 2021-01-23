@@ -1,19 +1,19 @@
 function ListNode(val) {
-    this.val = val;
-    this.next = null;
+  this.val = val;
+  this.next = null;
 }
 var deleteDuplicates = function (head) {
-    if (!head || !head.next) return head;
-    let dummy = new ListNode(-1);
-    dummy.next = head;
-    let pre = dummy;
-    while (pre.next) {
-        let cur = pre.next;
-        while (cur.next && cur.next.val == cur.val) {
-            cur = cur.next;
-        }
-        if (cur != pre.next) pre.next = cur.next;
-        else pre = pre.next;
+  if (!head || !head.next) return head;
+  let dummy = new ListNode(-1);
+  dummy.next = head;
+  let pre = dummy;
+  while (pre.next) {
+    let cur = pre.next;
+    while (cur.next && cur.next.val == cur.val) {
+      cur = cur.next;
     }
-    return dummy.next;
+    if (cur != pre.next) pre.next = cur.next;
+    else pre = pre.next;
+  }
+  return dummy.next;
 };

@@ -6,7 +6,6 @@ var minWindow = function (s, t) {
         if (typeof m[t[i]] != 'number') m[t[i]] = 1;
         else m[t[i]]++;
     }
-    console.log(m);
 
     for (let i = 0; i < s.length; i++) {
         if (--m[s[i]] >= 0) cnt++;

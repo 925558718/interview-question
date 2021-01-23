@@ -53,9 +53,9 @@
 
 
 
-var MyStack = function() {
-    this.q1=[];
-    this.q2=[];
+var MyStack = function () {
+    this.q1 = [];
+    this.q2 = [];
 };
 
 /**
@@ -63,9 +63,9 @@ var MyStack = function() {
  * @param {number} x
  * @return {void}
  */
-MyStack.prototype.push = function(x) {
+MyStack.prototype.push = function (x) {
     this.q2.push(x);
-    while(this.q2.length>1){
+    while (this.q2.length > 1) {
         this.q1.push(this.q2.shift());
     }
 };
@@ -74,8 +74,8 @@ MyStack.prototype.push = function(x) {
  * Removes the element on top of the stack and returns that element.
  * @return {number}
  */
-MyStack.prototype.pop = function() {
-    let x=this.top();this.q2.shift();
+MyStack.prototype.pop = function () {
+    let x = this.top(); this.q2.shift();
     return x;
 };
 
@@ -83,9 +83,9 @@ MyStack.prototype.pop = function() {
  * Get the top element.
  * @return {number}
  */
-MyStack.prototype.top = function() {
-    if(this.q2.length==0){
-        for(let i=0;i<this.q1.length-1;i++){
+MyStack.prototype.top = function () {
+    if (this.q2.length == 0) {
+        for (let i = 0; i < this.q1.length - 1; i++) {
             this.q1.push(this.q1.shift());
         }
         this.q2.push(this.q1.shift());
@@ -97,6 +97,6 @@ MyStack.prototype.top = function() {
  * Returns whether the stack is empty.
  * @return {boolean}
  */
-MyStack.prototype.empty = function() {
-    return this.q1.length==0&&this.q2.length==0;
+MyStack.prototype.empty = function () {
+    return this.q1.length == 0 && this.q2.length == 0;
 };

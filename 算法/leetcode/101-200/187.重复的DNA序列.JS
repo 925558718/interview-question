@@ -5,8 +5,6 @@ var findRepeatedDnaSequences = function (s) {
         if (st.has(t)) res.add(t);
         else st.add(t)
     }
-    console.log(res);
-
     return res;
 };
 findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT")

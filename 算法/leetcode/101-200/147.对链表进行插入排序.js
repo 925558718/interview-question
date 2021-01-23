@@ -3,16 +3,24 @@ function ListNode(val) {
     this.next = null;
 }
 var insertionSortList = function (head) {
-    let dummy = new ListNode(-1), cur = dummy;
-    while (head) {
-        let t = cur.next;
-        cur = dummy;
-        while (cur.next && cur.next.val > head.val) {
-            cur = cur.next;
+    if (!head) return head;
+    let dummy = new ListNode(-1);
+    dummy.next = head;
+    let pre = head,
+        cur = head.next;
+    while (cur) {
+        if (pre.val <= cur.val) {
+            pre = pre.next;
+        } else {
+            let start = dummy;
+            while (start.next.val <= cur.val) {
+                start = start.next;
+            }
+            pre.next = cur.next;
+            cur.next = start.next;
+            start.next = cur;
         }
-        head.next = cur.next;
-        cur.next = head;
-        head = t;
+        cur = pre.next;
     }
     return dummy.next;
-}
+};

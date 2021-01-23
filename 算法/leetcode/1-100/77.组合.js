@@ -4,7 +4,7 @@ var combine = function (n, k) {
     return res;
 };
 function help(res, level, out, k, n) {
-    if (out.length == k) {
+    if (level == k) {
         res.push(out);
         return;
     }
