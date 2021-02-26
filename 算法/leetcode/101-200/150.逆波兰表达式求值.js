@@ -3,7 +3,7 @@ var evalRPN = function (tokens) {
     let s = [];
     for (let i = 0; i < tokens.length; i++) {
         if (tokens[i] != "+" && tokens[i] != "-" && tokens[i] != "*" && tokens[i] != "/") {
-            s.push(Number(tokens[i]))
+            s.push(+tokens[i])
         } else {
             let num1 = s.pop();
             let num2 = s.pop();

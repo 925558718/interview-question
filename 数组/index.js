@@ -13,8 +13,10 @@ Array.prototype.reduce1 = function (handler, init) {
     return value;
 }
 
-// 数组去重
-function flatten(arr) {
+// 数组扁平化
+
+
+function flatten1(arr) {
     var res = [];
     arr.forEach(item => {
         if (Array.isArray(item)) {
@@ -25,3 +27,32 @@ function flatten(arr) {
     })
     return res;
 }
+
+function flatten2(arr) {
+    let s = [arr];
+    let res = [];
+    while (s.length) {
+        while (Array.isArray(s[s.length - 1])) {
+            let t = s.pop();
+            for (let i = t.length - 1; i >= 0; i--) s.push(t[i]);
+        }
+        res.push(s.pop())
+    }
+    return res;
+}
+
+Array.prototype.flatten3 = function (count) {
+    if (count === 0) return this;
+    let arr = this;
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            res.push(...arr[i].flatten3(count-1))
+        } else {
+            res.push(arr[i])
+        }
+    }
+    return res;
+}
+let arr=[1,[2,[3]]];
+console.log(arr.flatten3(2));
