@@ -1,3 +1,0 @@
-var oddEvenList = function(head) {
-    
-};
