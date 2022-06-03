@@ -1,10 +1,13 @@
-var hIndex = function (citations) {
-    citations.sorted((a, b) => {
-        return a - b;
+/**
+ * @param {number[]} citations
+ * @return {number}
+ */
+var hIndex = function(citations) {
+    citations.sort((a,b)=>{
+        return a-b
     })
-    let index = 0;
-    while (index < citations.length && citations[citations.length - 1 - i] > index) {
-        index++;
+    for(let i=0;i<citations.length;i++) {
+        if(citations[i] <=i) return i;
     }
-    return index;
+    return citations.length
 };
