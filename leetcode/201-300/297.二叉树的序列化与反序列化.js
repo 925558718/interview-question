@@ -19,11 +19,13 @@ var serialize = function (root) {
     while (p || s.length) {
         if (p) {
             res.push(p.val)
+            if(!p.left) res.push(null)
+            if(!p.right) res.push(null)
             s.push(p)
             p = p.left;
         } else {
             let t = s.pop();
-            t = t.right
+            p = t.right
         }
     }
     return res;
