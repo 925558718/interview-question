@@ -1,5 +1,4 @@
-var jump = function (nums) {
-  let n = nums.length;
+var jump = function (nums) {lf
   let end = 0;
   let maxPosition = 0;
   let steps = 0;

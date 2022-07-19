@@ -1,20 +1,16 @@
-function rotate(m) {
-  let n = m.length;
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function (matrix) {
+  let n = matrix.length
   for (let i = 0; i < n - 1; i++) {
-    for (let j = 0; j < n - i; j++) {
-      let temp = m[i][j];
-      m[i][j] = m[n - 1 - j][n - 1 - i];
-      m[n - 1 - j][n - 1 - i] = temp;
+    for (let j = 0; j < n - i - 1; j++) {
+      let temp = matrix[i][j]
+      matrix[i][j] = matrix[n - j - 1][n - i - 1]
+      matrix[n - j - 1][n - i - 1] = temp;
     }
-  }
-  console.log(m);
 
-  return m.reverse();
-}
-console.log(
-  rotate([
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9],
-  ])
-);
+  }
+  return matrix.reverse()
+};

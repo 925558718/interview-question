@@ -12,4 +12,4 @@ var reverse = function (x) {
     }
     return res;
 };
-console.log(reverse(10));
+console.log(reverse(-321));

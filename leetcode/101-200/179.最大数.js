@@ -9,4 +9,4 @@ var largestNumber = function (nums) {
   for (i = 0; i < nums.length - 1; i++) if (nums[i] != 0) break;
   return nums.slice(i, nums.length).join("");
 };
-console.log(largestNumber([0, 0]));
+console.log(largestNumber([3,30,34,5,9]));
