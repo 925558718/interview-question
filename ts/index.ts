@@ -8,6 +8,8 @@ type myPartial<T> = {
   [P in keyof T]?: T[P];
 };
 
+
+
 type PartialOption<T, K extends keyof T> = {
   [P in K]?: T[P];
 };
@@ -48,11 +50,4 @@ type myReturnType<T extends Function> = T extends (...args: any) => infer P
   ? P
   : any;
 
-type MyConstructorParameters<T extends abstract new (...args: any) => any>  = T extends abstract new (...args: infer P) => any ? P : never;
-
-
-//自定义高级类型
-
-type SymmetricDifference<T,U>=Exclude<T|U,T&U>
-
-type Eg = SymmetricDifference<'1' | '2' | '3', '2' | '3' | '4'>
+type MyConstructorParameters<T extends abstract new (...args: any) => any> = T extends abstract new (...args: infer P) => any ? P : never;

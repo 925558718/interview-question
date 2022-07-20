@@ -47,12 +47,25 @@ Array.prototype.flatten3 = function (count) {
     let res = [];
     for (let i = 0; i < arr.length; i++) {
         if (Array.isArray(arr[i])) {
-            res.push(...arr[i].flatten3(count-1))
+            res.push(...arr[i].flatten3(count - 1))
         } else {
             res.push(arr[i])
         }
     }
     return res;
 }
-let arr=[1,[2,[3]]];
-console.log(arr.flatten3(2));
+let arr = [1, [2, [3]]];
+
+
+Array.prototype.gaga = function (fn=()=>{}, init) {
+    let arr = this;
+    let sum = init
+    for (let i = 0; i < arr.length; i++) {
+        sum = fn(sum, arr[i], i, arr)
+    }
+    return sum
+}
+console.log([1,2,3].gaga((sum,item)=>{
+    sum+=item;
+    return sum;
+},0))

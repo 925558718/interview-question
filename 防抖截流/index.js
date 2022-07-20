@@ -45,3 +45,14 @@ function debounce(fn, wait, immediate) {
         }
     }
 }
+
+function debounce1(fn, wait, immediate) {
+    let start = 0;
+    return function () {
+        let now = new Date();
+        if (now - start > wait) {
+            fn.call()
+            start = now;
+        }
+    }
+}

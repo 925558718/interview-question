@@ -29,6 +29,7 @@ Function.prototype.call = function (context) {
     return res;
 }
 
+
 //apply
 Function.prototype.apply = function (context, rest) {
     if (!context) {
@@ -57,12 +58,10 @@ Object.create1 = function (obj, properties) {
     return o;
 }
 
-
 //curry
 const curry = (fn, ...args) => {
     return args.length < fn.length ? (...arguments) => curry(fn, ...args, ...arguments) : fn(...args)
 }
-
 
 //深拷贝
 function DeepCopy(obj, hash = new Map()) {
@@ -95,34 +94,34 @@ function _new() {
 
 
 //retry函数
-function retry(api,count){
+function retry(api, count) {
     console.log(count);
-    return axios().then(res=>{
+    return axios().then(res => {
         return Promise.resolve(res);
-    }).catch(err=>{
-        return count?retry(api,count-1):Promise.reject(err);
+    }).catch(err => {
+        return count ? retry(api, count - 1) : Promise.reject(err);
     })
 }
 
 
 //xhr
-function ajax(method,url,params){
-    return new Promise((resolve,reject)=>{
-        let xhr=new XMLHttpRequest();
-        xhr.onreadystatechange=function(){
-            if(xhr.status===200&&xhr.readyState===4){
+function ajax(method, url, params) {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.status === 200 && xhr.readyState === 4) {
                 resolve(xhr.response);
             }
         }
-        xhr.onerror=function(err){
+        xhr.onerror = function (err) {
             reject(err);
         }
-        const formData=new FormData();
-        for(const p in params){
-            formData.append(p,params[p]);
+        const formData = new FormData();
+        for (const p in params) {
+            formData.append(p, params[p]);
         }
-        xhr.setRequestHeader('Content-type','application/x-www-form-urlencodeed');
-        xhr.open(method,url,true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencodeed');
+        xhr.open(method, url, true);
         xhr.send(formData);
     })
 }
