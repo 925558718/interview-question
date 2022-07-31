@@ -25,9 +25,9 @@ function limitRequest1(url, limit) {
   });
 }
 
-help([1000, 2000, 3000, 4000], 2).then((res) => {
-  console.log(res);
-});
+// help([1000, 2000, 3000, 4000], 2).then((res) => {
+//   console.log(res);
+// });
 
 function limitRequest2(url, limit) {
   let index = 0;
@@ -36,7 +36,9 @@ function limitRequest2(url, limit) {
     for (let i = 0; i < limit; i++) {
       async function next() {
         while (index < url.length) {
+          console.log('start',Date.now());
           let res = await wait(url[index++]);
+          console.log('end',Date.now())
           result.push(res);
           if (result.length == url.length) resolve(result);
         }
@@ -46,7 +48,7 @@ function limitRequest2(url, limit) {
   });
 }
 
-help([1000, 1000, 1000, 1000], 4).then((res) => {
+limitRequest2([100, 200, 300, 400], 2).then((res) => {
   console.log(res);
 });
 

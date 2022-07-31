@@ -1,4 +1,4 @@
-var getRow = function (rowIndex) {
+var getRow = function (rowIndex,i) {
     if (rowIndex == 0) return 1;
     let res = [[1]];
     for (let i = 1; i < rowIndex; i++) {
@@ -10,5 +10,5 @@ var getRow = function (rowIndex) {
         }
         res.push(out)
     }
-    return res[rowIndex - 1];
+    return res[rowIndex - 1][i];
 };
