@@ -13,6 +13,13 @@
 因为作用域链的关系
 
 # react
+## react-redux
+
+使用React.createContext 提供的Provider和Consumer来向下传值和获取值
+然后用Connect连接，connect是一个高级组件，是一个双箭头函数，返回一个consumer包裹的组件
+在这个组件内部可以拿到当前值传入下面的组件。
+然后redux提供了一个subscribe,当值有变化的时候consumer就会获取最新值传入下方组件。因为prop变了子组件也会更新
+
 ## react 18 新特性
 concurrent 模式
 批处理 SyncFlush
@@ -23,7 +30,17 @@ suspense ssr mode
 ## react-router 原理
 histoy 和 hash 模式
 Hash 模式使用 onhashchange 监听 hash 值变化
+
 histroy 模式使用 pushState
+
+## diff过程
+### vue的diff双指针
+1.如果新树闭合 旧树未闭合需要删除，反之需要增加
+2.如果都没闭合，创建一个map，先遍历旧树存在map，再遍历新树，创建数组，如遇不存在map里面的则标记为新增，存在就移动
+3.然后移动需要找出最小移动次数，计算最长递增子序列，不在递增序列的移动到新的位置
+### react的diff
+react在移动策略上用右移策略，就是结点只从低位移向高位。这种复杂度不固定
+
 ## function 和 class 的区别
 1. 最大的区别在于心智负担，function 组件可以捕获这次渲染的所有 prop 和 state，但是 class 是默认是读取最新的数据，一些情况还会比较新旧状态是否一致，代码比较杂乱。比如说在 setTimeout 里，class 组件获取的是 setTimeout 执行时的数据，function 获取的是注册 setTimeout 的数据。当 function 想像 class 那样获取最新值的话可以使用 useRef，所以 function 更符合 react 的 immutable 和 UI 在概念上是当前应用状态的一个函数。
 2.function 带给我们的好处是能提高渲染可预测性，够降低一些奇怪 bug 的几率，并且在找 bug 时路径是单一的，代码更加简洁。
@@ -82,6 +99,13 @@ useEffect 的回调函数为什么无法使用 async？
 
 
 # 浏览器
+## 攻击
+### csrf攻击
+攻击者让用户在带有身份验证的情况下去请求特定功能
+#### 防御
+1.验证码
+2.referer
+3.token
 ## 浏览器缓存
 分为强缓存和协商缓存
 强缓存通过 expires 和 cache- control 判断缓存过期
@@ -101,6 +125,14 @@ last-modified/if-modified-since
 etag/if-none-match
 服务器返回一个 etag，浏览器请求带上 etag，如果不一样则缓存需要更新
 Etag 不存在时间戳不准确问题，但是生成 etag 耗费资源
+
+## 跨域方法
+cors
+jsonp
+代理
+### cors需要设置哪些
+
+
 ## https
 非对称传输密钥，对称传输数据
 C 生成随机数
@@ -208,6 +240,6 @@ Props 的时候尽量使用对象结构这也跟符合 fp 的理念
 IntersectionObserver
 getBoundingClientRect
 
-
+// abc cba
 
 
